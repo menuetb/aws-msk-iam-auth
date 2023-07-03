@@ -271,10 +271,8 @@ public class MSKCredentialProvider implements AWSCredentialsProvider, AutoClosea
         }
 
         public EndpointConfiguration buildEndpointConfiguration(String stsRegion){
-            // Init region from stsRegion
             Region region = RegionUtils.getRegion(stsRegion);
             String serviceEndpoint = region.getServiceEndpoint("sts");
-            //An AWSSecurityTokenService with a regional endpoint configuration
             EndpointConfiguration endpointConfiguration =
                     new EndpointConfiguration(
                             String.format(serviceEndpoint, stsRegion),
